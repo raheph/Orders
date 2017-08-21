@@ -8163,3 +8163,6409 @@ where
     where
         orderitems0_.Orders_OrderId=?
 [16:52:47] binding parameter [1] as [VARCHAR] - [Order001]
+[13:35:13] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[13:35:15] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[13:35:15] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[13:35:15] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[13:35:15] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[13:35:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[13:35:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[13:35:15] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[13:35:15] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[13:35:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[13:35:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[13:35:15] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[13:35:15] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[13:35:15] binding parameter [1] as [VARCHAR] - [Order001]
+[14:31:07] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[14:31:08] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:31:08] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:31:08] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:31:08] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:31:08] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:31:08] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:31:08] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:31:08] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:31:08] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:31:08] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:31:08] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[14:31:08] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[14:31:08] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:18] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[14:39:19] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[14:39:19] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[14:39:19] 
+    
+    drop table if exists Items cascade
+[14:39:19] 
+    
+    drop table if exists OrderItems cascade
+[14:39:19] 
+    
+    drop table if exists Orders cascade
+[14:39:19] 
+    
+    drop table if exists Orders_OrderItems cascade
+[14:39:19] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:39:19] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:39:19] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:39:19] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:39:19] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:39:19] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:39:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:19] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:19] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:19] binding parameter [3] as [VARCHAR] - [S01]
+[14:39:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:19] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:19] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:19] binding parameter [3] as [VARCHAR] - [S02]
+[14:39:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:19] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:19] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:19] binding parameter [3] as [VARCHAR] - [S03]
+[14:39:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:19] binding parameter [1] as [BIGINT] - [2]
+[14:39:19] binding parameter [2] as [VARCHAR] - [S01]
+[14:39:19] binding parameter [3] as [VARCHAR] - [null]
+[14:39:19] binding parameter [4] as [VARCHAR] - [order1]
+[14:39:19] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[14:39:19] binding parameter [1] as [VARCHAR] - [Rahel E]
+[14:39:19] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 14:39:19 PDT 2017]
+[14:39:19] binding parameter [3] as [VARCHAR] - [Order001]
+[14:39:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:19] binding parameter [1] as [BIGINT] - [2]
+[14:39:19] binding parameter [2] as [VARCHAR] - [S02]
+[14:39:19] binding parameter [3] as [VARCHAR] - [null]
+[14:39:19] binding parameter [4] as [VARCHAR] - [order2]
+[14:39:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:19] binding parameter [1] as [BIGINT] - [2]
+[14:39:19] binding parameter [2] as [VARCHAR] - [S03]
+[14:39:19] binding parameter [3] as [VARCHAR] - [null]
+[14:39:19] binding parameter [4] as [VARCHAR] - [order3]
+[14:39:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:19] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:19] binding parameter [2] as [VARCHAR] - [order1]
+[14:39:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:19] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:19] binding parameter [2] as [VARCHAR] - [order2]
+[14:39:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:19] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:19] binding parameter [2] as [VARCHAR] - [order3]
+[14:39:19] commited ... 
+[14:39:19] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[14:39:19] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[14:39:19] 
+    
+    drop table if exists Items cascade
+[14:39:19] 
+    
+    drop table if exists OrderItems cascade
+[14:39:19] 
+    
+    drop table if exists Orders cascade
+[14:39:19] 
+    
+    drop table if exists Orders_OrderItems cascade
+[14:39:19] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:39:19] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:39:19] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:39:19] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:39:19] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:39:19] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:39:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:39:20] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[14:39:55] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[14:39:56] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[14:39:56] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[14:39:56] 
+    
+    drop table if exists Items cascade
+[14:39:56] 
+    
+    drop table if exists OrderItems cascade
+[14:39:56] 
+    
+    drop table if exists Orders cascade
+[14:39:56] 
+    
+    drop table if exists Orders_OrderItems cascade
+[14:39:56] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:39:56] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:39:56] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:39:56] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:39:56] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:39:56] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:39:56] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:56] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:56] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:56] binding parameter [3] as [VARCHAR] - [S01]
+[14:39:56] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:56] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:56] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:56] binding parameter [3] as [VARCHAR] - [S02]
+[14:39:56] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:39:56] binding parameter [1] as [NUMERIC] - [40.5]
+[14:39:56] binding parameter [2] as [VARCHAR] - [shose]
+[14:39:56] binding parameter [3] as [VARCHAR] - [S03]
+[14:39:56] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:56] binding parameter [1] as [BIGINT] - [2]
+[14:39:56] binding parameter [2] as [VARCHAR] - [S01]
+[14:39:56] binding parameter [3] as [VARCHAR] - [null]
+[14:39:56] binding parameter [4] as [VARCHAR] - [order1]
+[14:39:56] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[14:39:56] binding parameter [1] as [VARCHAR] - [Rahel E]
+[14:39:56] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 14:39:56 PDT 2017]
+[14:39:56] binding parameter [3] as [VARCHAR] - [Order001]
+[14:39:56] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:56] binding parameter [1] as [BIGINT] - [2]
+[14:39:56] binding parameter [2] as [VARCHAR] - [S02]
+[14:39:56] binding parameter [3] as [VARCHAR] - [null]
+[14:39:56] binding parameter [4] as [VARCHAR] - [order2]
+[14:39:56] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:39:56] binding parameter [1] as [BIGINT] - [2]
+[14:39:56] binding parameter [2] as [VARCHAR] - [S03]
+[14:39:56] binding parameter [3] as [VARCHAR] - [null]
+[14:39:56] binding parameter [4] as [VARCHAR] - [order3]
+[14:39:56] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:56] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:56] binding parameter [2] as [VARCHAR] - [order1]
+[14:39:56] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:56] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:56] binding parameter [2] as [VARCHAR] - [order2]
+[14:39:56] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:39:56] binding parameter [1] as [VARCHAR] - [Order001]
+[14:39:56] binding parameter [2] as [VARCHAR] - [order3]
+[14:39:56] commited ... 
+[14:39:56] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[14:39:56] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[14:39:56] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[14:39:56] 
+    
+    drop table if exists Items cascade
+[14:39:56] 
+    
+    drop table if exists OrderItems cascade
+[14:39:56] 
+    
+    drop table if exists Orders cascade
+[14:39:56] 
+    
+    drop table if exists Orders_OrderItems cascade
+[14:39:56] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:39:56] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:39:56] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:39:57] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:39:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:39:57] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:39:57] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:39:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:39:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:39:57] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[14:41:35] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[14:41:36] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:41:36] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:41:36] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:41:36] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:41:36] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:41:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:41:36] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:41:36] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:41:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:41:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:41:37] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:41:37] binding parameter [1] as [NUMERIC] - [40.5]
+[14:41:37] binding parameter [2] as [VARCHAR] - [shose]
+[14:41:37] binding parameter [3] as [VARCHAR] - [S01]
+[14:41:37] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:41:37] binding parameter [1] as [NUMERIC] - [40.5]
+[14:41:37] binding parameter [2] as [VARCHAR] - [shose]
+[14:41:37] binding parameter [3] as [VARCHAR] - [S02]
+[14:41:37] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:41:37] binding parameter [1] as [NUMERIC] - [40.5]
+[14:41:37] binding parameter [2] as [VARCHAR] - [shose]
+[14:41:37] binding parameter [3] as [VARCHAR] - [S03]
+[14:41:37] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:41:37] binding parameter [1] as [BIGINT] - [2]
+[14:41:37] binding parameter [2] as [VARCHAR] - [S01]
+[14:41:37] binding parameter [3] as [VARCHAR] - [null]
+[14:41:37] binding parameter [4] as [VARCHAR] - [order1]
+[14:41:37] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[14:41:37] binding parameter [1] as [VARCHAR] - [Rahel E]
+[14:41:37] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 14:41:37 PDT 2017]
+[14:41:37] binding parameter [3] as [VARCHAR] - [Order001]
+[14:41:37] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:41:37] binding parameter [1] as [BIGINT] - [2]
+[14:41:37] binding parameter [2] as [VARCHAR] - [S02]
+[14:41:37] binding parameter [3] as [VARCHAR] - [null]
+[14:41:37] binding parameter [4] as [VARCHAR] - [order2]
+[14:41:37] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:41:37] binding parameter [1] as [BIGINT] - [2]
+[14:41:37] binding parameter [2] as [VARCHAR] - [S03]
+[14:41:37] binding parameter [3] as [VARCHAR] - [null]
+[14:41:37] binding parameter [4] as [VARCHAR] - [order3]
+[14:41:37] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:41:37] binding parameter [1] as [VARCHAR] - [Order001]
+[14:41:37] binding parameter [2] as [VARCHAR] - [order1]
+[14:41:37] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:41:37] binding parameter [1] as [VARCHAR] - [Order001]
+[14:41:37] binding parameter [2] as [VARCHAR] - [order2]
+[14:41:37] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:41:37] binding parameter [1] as [VARCHAR] - [Order001]
+[14:41:37] binding parameter [2] as [VARCHAR] - [order3]
+[14:41:37] commited ... 
+[14:41:37] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:41:37] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:41:37] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:41:37] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:41:37] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:41:37] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:41:37] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:41:37] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:41:37] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:41:37] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:41:37] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[14:41:37] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[14:41:37] binding parameter [1] as [VARCHAR] - [Order001]
+[14:45:40] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[14:45:42] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:45:42] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:45:42] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:45:42] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:45:42] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:45:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:45:42] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:45:42] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:45:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:45:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:45:42] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:45:42] binding parameter [1] as [NUMERIC] - [40.5]
+[14:45:42] binding parameter [2] as [VARCHAR] - [shose]
+[14:45:42] binding parameter [3] as [VARCHAR] - [S01]
+[14:45:42] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[14:45:42] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[14:47:20] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:47:20] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:47:20] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:47:20] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:47:20] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:47:20] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:47:20] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:47:20] binding parameter [1] as [NUMERIC] - [40.5]
+[14:47:20] binding parameter [2] as [VARCHAR] - [shose]
+[14:47:20] binding parameter [3] as [VARCHAR] - [S01]
+[14:47:20] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:47:20] binding parameter [1] as [NUMERIC] - [40.5]
+[14:47:20] binding parameter [2] as [VARCHAR] - [shose]
+[14:47:20] binding parameter [3] as [VARCHAR] - [S02]
+[14:47:20] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[14:47:20] binding parameter [1] as [NUMERIC] - [40.5]
+[14:47:20] binding parameter [2] as [VARCHAR] - [shose]
+[14:47:20] binding parameter [3] as [VARCHAR] - [S03]
+[14:47:20] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:47:20] binding parameter [1] as [BIGINT] - [2]
+[14:47:20] binding parameter [2] as [VARCHAR] - [S01]
+[14:47:20] binding parameter [3] as [VARCHAR] - [null]
+[14:47:20] binding parameter [4] as [VARCHAR] - [order1]
+[14:47:20] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[14:47:20] binding parameter [1] as [VARCHAR] - [Rahel E]
+[14:47:20] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 14:47:20 PDT 2017]
+[14:47:20] binding parameter [3] as [VARCHAR] - [Order001]
+[14:47:20] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:47:20] binding parameter [1] as [BIGINT] - [2]
+[14:47:20] binding parameter [2] as [VARCHAR] - [S02]
+[14:47:20] binding parameter [3] as [VARCHAR] - [null]
+[14:47:20] binding parameter [4] as [VARCHAR] - [order2]
+[14:47:20] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[14:47:20] binding parameter [1] as [BIGINT] - [2]
+[14:47:20] binding parameter [2] as [VARCHAR] - [S03]
+[14:47:20] binding parameter [3] as [VARCHAR] - [null]
+[14:47:20] binding parameter [4] as [VARCHAR] - [order3]
+[14:47:20] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:47:20] binding parameter [1] as [VARCHAR] - [Order001]
+[14:47:20] binding parameter [2] as [VARCHAR] - [order1]
+[14:47:20] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:47:20] binding parameter [1] as [VARCHAR] - [Order001]
+[14:47:20] binding parameter [2] as [VARCHAR] - [order2]
+[14:47:20] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[14:47:20] binding parameter [1] as [VARCHAR] - [Order001]
+[14:47:20] binding parameter [2] as [VARCHAR] - [order3]
+[14:47:20] commited ... 
+[14:47:20] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[14:47:20] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[14:47:20] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[14:47:20] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[14:47:20] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[14:47:20] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[14:47:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[14:47:20] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[14:47:20] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[14:47:20] binding parameter [1] as [VARCHAR] - [Order001]
+[15:44:06] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:44:07] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:44:07] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:44:07] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:44:07] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:44:07] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[15:44:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:44:07] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:44:07] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:44:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:44:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:44:07] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:44:07] binding parameter [1] as [NUMERIC] - [40.5]
+[15:44:07] binding parameter [2] as [VARCHAR] - [shose]
+[15:44:07] binding parameter [3] as [VARCHAR] - [S01]
+[15:44:07] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[15:44:07] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[15:44:19] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:44:20] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:44:20] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:44:20] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:44:20] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:44:20] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[15:44:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:44:20] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:44:20] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:44:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:44:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:44:20] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:44:20] binding parameter [1] as [NUMERIC] - [40.5]
+[15:44:20] binding parameter [2] as [VARCHAR] - [shose]
+[15:44:20] binding parameter [3] as [VARCHAR] - [S01]
+[15:44:20] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[15:44:20] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[15:44:26] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:44:27] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:44:27] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:44:27] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:44:27] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:44:27] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[15:44:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:44:27] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:44:27] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:44:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:44:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:44:28] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:44:28] binding parameter [1] as [NUMERIC] - [40.5]
+[15:44:28] binding parameter [2] as [VARCHAR] - [shose]
+[15:44:28] binding parameter [3] as [VARCHAR] - [S01]
+[15:44:28] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[15:44:28] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[15:44:54] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:44:56] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:44:56] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:44:56] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:44:56] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:44:56] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[15:44:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:44:56] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:44:56] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:44:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:44:56] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:44:56] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:44:56] binding parameter [1] as [NUMERIC] - [40.5]
+[15:44:56] binding parameter [2] as [VARCHAR] - [shose]
+[15:44:56] binding parameter [3] as [VARCHAR] - [S01]
+[15:44:56] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[15:44:56] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[15:47:35] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:47:36] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:47:36] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:47:36] 
+    
+    drop table if exists Items cascade
+[15:47:36] 
+    
+    drop table if exists OrderItems cascade
+[15:47:36] 
+    
+    drop table if exists Orders cascade
+[15:47:36] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:47:36] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:47:36] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:47:36] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:47:36] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:47:36] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:47:36] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:47:36] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:47:36] binding parameter [1] as [NUMERIC] - [40.5]
+[15:47:36] binding parameter [2] as [VARCHAR] - [shose]
+[15:47:36] binding parameter [3] as [VARCHAR] - [S01]
+[15:47:36] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:47:36] binding parameter [1] as [NUMERIC] - [40.5]
+[15:47:36] binding parameter [2] as [VARCHAR] - [shose]
+[15:47:36] binding parameter [3] as [VARCHAR] - [S02]
+[15:47:36] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:47:36] binding parameter [1] as [NUMERIC] - [40.5]
+[15:47:36] binding parameter [2] as [VARCHAR] - [shose]
+[15:47:36] binding parameter [3] as [VARCHAR] - [S03]
+[15:47:36] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:47:36] binding parameter [1] as [BIGINT] - [2]
+[15:47:36] binding parameter [2] as [VARCHAR] - [S01]
+[15:47:36] binding parameter [3] as [VARCHAR] - [null]
+[15:47:36] binding parameter [4] as [VARCHAR] - [order1]
+[15:47:36] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:47:36] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:47:36] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:47:36 PDT 2017]
+[15:47:36] binding parameter [3] as [VARCHAR] - [Order001]
+[15:47:36] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:47:36] binding parameter [1] as [BIGINT] - [2]
+[15:47:36] binding parameter [2] as [VARCHAR] - [S02]
+[15:47:36] binding parameter [3] as [VARCHAR] - [null]
+[15:47:36] binding parameter [4] as [VARCHAR] - [order2]
+[15:47:36] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:47:36] binding parameter [1] as [BIGINT] - [2]
+[15:47:36] binding parameter [2] as [VARCHAR] - [S03]
+[15:47:36] binding parameter [3] as [VARCHAR] - [null]
+[15:47:36] binding parameter [4] as [VARCHAR] - [order3]
+[15:47:36] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:47:36] binding parameter [1] as [VARCHAR] - [Order001]
+[15:47:36] binding parameter [2] as [VARCHAR] - [order1]
+[15:47:36] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:47:36] binding parameter [1] as [VARCHAR] - [Order001]
+[15:47:36] binding parameter [2] as [VARCHAR] - [order2]
+[15:47:36] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:47:36] binding parameter [1] as [VARCHAR] - [Order001]
+[15:47:36] binding parameter [2] as [VARCHAR] - [order3]
+[15:47:36] commited ... 
+[15:47:36] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:47:36] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:47:36] 
+    
+    drop table if exists Items cascade
+[15:47:36] 
+    
+    drop table if exists OrderItems cascade
+[15:47:36] 
+    
+    drop table if exists Orders cascade
+[15:47:36] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:47:36] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:47:36] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:47:36] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:47:36] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:47:36] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:47:36] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:47:36] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:47:36] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:48:05] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:48:06] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:48:06] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:48:06] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:48:06] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:48:06] 
+    
+    drop table if exists Items cascade
+[15:48:06] 
+    
+    drop table if exists OrderItems cascade
+[15:48:06] 
+    
+    drop table if exists Orders cascade
+[15:48:06] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:48:06] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:48:06] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:48:06] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:48:06] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:48:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:48:06] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:48:06] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:48:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:48:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:48:07] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:48:07] binding parameter [1] as [NUMERIC] - [40.5]
+[15:48:07] binding parameter [2] as [VARCHAR] - [shose]
+[15:48:07] binding parameter [3] as [VARCHAR] - [S01]
+[15:48:07] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:48:07] binding parameter [1] as [NUMERIC] - [40.5]
+[15:48:07] binding parameter [2] as [VARCHAR] - [shose]
+[15:48:07] binding parameter [3] as [VARCHAR] - [S02]
+[15:48:07] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:48:07] binding parameter [1] as [NUMERIC] - [40.5]
+[15:48:07] binding parameter [2] as [VARCHAR] - [shose]
+[15:48:07] binding parameter [3] as [VARCHAR] - [S03]
+[15:48:07] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:48:07] binding parameter [1] as [BIGINT] - [2]
+[15:48:07] binding parameter [2] as [VARCHAR] - [S01]
+[15:48:07] binding parameter [3] as [VARCHAR] - [null]
+[15:48:07] binding parameter [4] as [VARCHAR] - [order1]
+[15:48:07] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:48:07] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:48:07] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:48:07 PDT 2017]
+[15:48:07] binding parameter [3] as [VARCHAR] - [Order001]
+[15:48:07] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:48:07] binding parameter [1] as [BIGINT] - [2]
+[15:48:07] binding parameter [2] as [VARCHAR] - [S02]
+[15:48:07] binding parameter [3] as [VARCHAR] - [null]
+[15:48:07] binding parameter [4] as [VARCHAR] - [order2]
+[15:48:07] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:48:07] binding parameter [1] as [BIGINT] - [2]
+[15:48:07] binding parameter [2] as [VARCHAR] - [S03]
+[15:48:07] binding parameter [3] as [VARCHAR] - [null]
+[15:48:07] binding parameter [4] as [VARCHAR] - [order3]
+[15:48:07] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:48:07] binding parameter [1] as [VARCHAR] - [Order001]
+[15:48:07] binding parameter [2] as [VARCHAR] - [order1]
+[15:48:07] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:48:07] binding parameter [1] as [VARCHAR] - [Order001]
+[15:48:07] binding parameter [2] as [VARCHAR] - [order2]
+[15:48:07] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:48:07] binding parameter [1] as [VARCHAR] - [Order001]
+[15:48:07] binding parameter [2] as [VARCHAR] - [order3]
+[15:48:07] commited ... 
+[15:48:07] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:48:07] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:48:07] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:48:07] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:48:07] 
+    
+    drop table if exists Items cascade
+[15:48:07] 
+    
+    drop table if exists OrderItems cascade
+[15:48:07] 
+    
+    drop table if exists Orders cascade
+[15:48:07] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:48:07] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:48:07] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:48:07] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:48:07] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:48:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:48:07] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:48:07] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:48:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:48:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:48:07] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:49:32] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:49:34] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:49:34] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:49:34] 
+    
+    drop table if exists Items cascade
+[15:49:34] 
+    
+    drop table if exists OrderItems cascade
+[15:49:34] 
+    
+    drop table if exists Orders cascade
+[15:49:34] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:49:34] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:49:34] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:49:34] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:49:34] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:49:34] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:49:34] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:49:34] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:34] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:34] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:34] binding parameter [3] as [VARCHAR] - [S01]
+[15:49:34] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:34] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:34] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:34] binding parameter [3] as [VARCHAR] - [S02]
+[15:49:34] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:34] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:34] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:34] binding parameter [3] as [VARCHAR] - [S03]
+[15:49:34] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:34] binding parameter [1] as [BIGINT] - [2]
+[15:49:34] binding parameter [2] as [VARCHAR] - [S01]
+[15:49:34] binding parameter [3] as [VARCHAR] - [null]
+[15:49:34] binding parameter [4] as [VARCHAR] - [order1]
+[15:49:34] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:49:34] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:49:34] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:49:34 PDT 2017]
+[15:49:34] binding parameter [3] as [VARCHAR] - [Order001]
+[15:49:34] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:34] binding parameter [1] as [BIGINT] - [2]
+[15:49:34] binding parameter [2] as [VARCHAR] - [S02]
+[15:49:34] binding parameter [3] as [VARCHAR] - [null]
+[15:49:34] binding parameter [4] as [VARCHAR] - [order2]
+[15:49:34] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:34] binding parameter [1] as [BIGINT] - [2]
+[15:49:34] binding parameter [2] as [VARCHAR] - [S03]
+[15:49:34] binding parameter [3] as [VARCHAR] - [null]
+[15:49:34] binding parameter [4] as [VARCHAR] - [order3]
+[15:49:34] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:34] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:34] binding parameter [2] as [VARCHAR] - [order1]
+[15:49:34] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:34] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:34] binding parameter [2] as [VARCHAR] - [order2]
+[15:49:34] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:34] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:34] binding parameter [2] as [VARCHAR] - [order3]
+[15:49:34] commited ... 
+[15:49:34] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:49:34] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:49:34] 
+    
+    drop table if exists Items cascade
+[15:49:34] 
+    
+    drop table if exists OrderItems cascade
+[15:49:34] 
+    
+    drop table if exists Orders cascade
+[15:49:34] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:49:34] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:49:34] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:49:34] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:49:34] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:49:34] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:49:34] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:49:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:49:34] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:49:46] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:49:47] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:49:47] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:49:47] 
+    
+    drop table if exists Items cascade
+[15:49:47] 
+    
+    drop table if exists OrderItems cascade
+[15:49:47] 
+    
+    drop table if exists Orders cascade
+[15:49:47] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:49:47] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:49:47] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:49:47] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:49:47] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:49:47] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:49:47] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:49:47] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:47] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:47] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:47] binding parameter [3] as [VARCHAR] - [S01]
+[15:49:47] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:47] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:47] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:47] binding parameter [3] as [VARCHAR] - [S02]
+[15:49:47] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:49:47] binding parameter [1] as [NUMERIC] - [40.5]
+[15:49:47] binding parameter [2] as [VARCHAR] - [shose]
+[15:49:47] binding parameter [3] as [VARCHAR] - [S03]
+[15:49:47] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:47] binding parameter [1] as [BIGINT] - [2]
+[15:49:47] binding parameter [2] as [VARCHAR] - [S01]
+[15:49:47] binding parameter [3] as [VARCHAR] - [null]
+[15:49:47] binding parameter [4] as [VARCHAR] - [order1]
+[15:49:47] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:49:47] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:49:47] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:49:47 PDT 2017]
+[15:49:47] binding parameter [3] as [VARCHAR] - [Order001]
+[15:49:47] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:47] binding parameter [1] as [BIGINT] - [2]
+[15:49:47] binding parameter [2] as [VARCHAR] - [S02]
+[15:49:47] binding parameter [3] as [VARCHAR] - [null]
+[15:49:47] binding parameter [4] as [VARCHAR] - [order2]
+[15:49:47] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:49:47] binding parameter [1] as [BIGINT] - [2]
+[15:49:47] binding parameter [2] as [VARCHAR] - [S03]
+[15:49:47] binding parameter [3] as [VARCHAR] - [null]
+[15:49:47] binding parameter [4] as [VARCHAR] - [order3]
+[15:49:47] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:47] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:47] binding parameter [2] as [VARCHAR] - [order1]
+[15:49:47] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:47] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:47] binding parameter [2] as [VARCHAR] - [order2]
+[15:49:47] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:49:47] binding parameter [1] as [VARCHAR] - [Order001]
+[15:49:47] binding parameter [2] as [VARCHAR] - [order3]
+[15:49:47] commited ... 
+[15:49:47] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:49:47] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:49:47] 
+    
+    drop table if exists Items cascade
+[15:49:47] 
+    
+    drop table if exists OrderItems cascade
+[15:49:47] 
+    
+    drop table if exists Orders cascade
+[15:49:47] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:49:47] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:49:47] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:49:47] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:49:47] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:49:47] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:49:47] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:49:47] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:49:47] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:50:08] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:50:09] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:50:09] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:50:09] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:50:09] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:50:09] 
+    
+    drop table if exists Items cascade
+[15:50:09] 
+    
+    drop table if exists OrderItems cascade
+[15:50:09] 
+    
+    drop table if exists Orders cascade
+[15:50:09] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:50:09] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:50:09] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:50:09] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:50:09] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:50:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:50:09] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:50:09] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:50:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:50:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:50:09] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:09] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:09] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:09] binding parameter [3] as [VARCHAR] - [S01]
+[15:50:09] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:09] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:09] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:09] binding parameter [3] as [VARCHAR] - [S02]
+[15:50:09] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:09] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:09] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:09] binding parameter [3] as [VARCHAR] - [S03]
+[15:50:09] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:09] binding parameter [1] as [BIGINT] - [2]
+[15:50:09] binding parameter [2] as [VARCHAR] - [S01]
+[15:50:09] binding parameter [3] as [VARCHAR] - [null]
+[15:50:09] binding parameter [4] as [VARCHAR] - [order1]
+[15:50:09] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:50:09] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:50:09] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:50:09 PDT 2017]
+[15:50:09] binding parameter [3] as [VARCHAR] - [Order001]
+[15:50:09] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:09] binding parameter [1] as [BIGINT] - [2]
+[15:50:09] binding parameter [2] as [VARCHAR] - [S02]
+[15:50:09] binding parameter [3] as [VARCHAR] - [null]
+[15:50:09] binding parameter [4] as [VARCHAR] - [order2]
+[15:50:09] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:09] binding parameter [1] as [BIGINT] - [2]
+[15:50:09] binding parameter [2] as [VARCHAR] - [S03]
+[15:50:09] binding parameter [3] as [VARCHAR] - [null]
+[15:50:09] binding parameter [4] as [VARCHAR] - [order3]
+[15:50:09] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:09] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:09] binding parameter [2] as [VARCHAR] - [order1]
+[15:50:09] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:09] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:09] binding parameter [2] as [VARCHAR] - [order2]
+[15:50:09] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:09] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:09] binding parameter [2] as [VARCHAR] - [order3]
+[15:50:09] commited ... 
+[15:50:10] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:50:10] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:50:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:50:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:50:10] 
+    
+    drop table if exists Items cascade
+[15:50:10] 
+    
+    drop table if exists OrderItems cascade
+[15:50:10] 
+    
+    drop table if exists Orders cascade
+[15:50:10] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:50:10] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:50:10] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:50:10] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:50:10] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:50:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:50:10] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:50:10] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:50:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:50:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:50:10] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:50:40] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:50:42] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:50:42] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:50:42] 
+    
+    drop table if exists Items cascade
+[15:50:42] 
+    
+    drop table if exists OrderItems cascade
+[15:50:42] 
+    
+    drop table if exists Orders cascade
+[15:50:42] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:50:42] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:50:42] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:50:42] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:50:42] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:50:42] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:50:42] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:50:42] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:42] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:42] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:42] binding parameter [3] as [VARCHAR] - [S01]
+[15:50:42] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:42] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:42] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:42] binding parameter [3] as [VARCHAR] - [S02]
+[15:50:42] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:50:42] binding parameter [1] as [NUMERIC] - [40.5]
+[15:50:42] binding parameter [2] as [VARCHAR] - [shose]
+[15:50:42] binding parameter [3] as [VARCHAR] - [S03]
+[15:50:42] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:42] binding parameter [1] as [BIGINT] - [2]
+[15:50:42] binding parameter [2] as [VARCHAR] - [S01]
+[15:50:42] binding parameter [3] as [VARCHAR] - [null]
+[15:50:42] binding parameter [4] as [VARCHAR] - [order1]
+[15:50:42] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:50:42] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:50:42] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:50:42 PDT 2017]
+[15:50:42] binding parameter [3] as [VARCHAR] - [Order001]
+[15:50:42] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:42] binding parameter [1] as [BIGINT] - [2]
+[15:50:42] binding parameter [2] as [VARCHAR] - [S02]
+[15:50:42] binding parameter [3] as [VARCHAR] - [null]
+[15:50:42] binding parameter [4] as [VARCHAR] - [order2]
+[15:50:42] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:50:42] binding parameter [1] as [BIGINT] - [2]
+[15:50:42] binding parameter [2] as [VARCHAR] - [S03]
+[15:50:42] binding parameter [3] as [VARCHAR] - [null]
+[15:50:42] binding parameter [4] as [VARCHAR] - [order3]
+[15:50:42] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:42] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:42] binding parameter [2] as [VARCHAR] - [order1]
+[15:50:42] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:42] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:42] binding parameter [2] as [VARCHAR] - [order2]
+[15:50:42] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:50:42] binding parameter [1] as [VARCHAR] - [Order001]
+[15:50:42] binding parameter [2] as [VARCHAR] - [order3]
+[15:50:42] commited ... 
+[15:50:42] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:50:42] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:50:42] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:50:42] 
+    
+    drop table if exists Items cascade
+[15:50:42] 
+    
+    drop table if exists OrderItems cascade
+[15:50:43] 
+    
+    drop table if exists Orders cascade
+[15:50:43] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:50:43] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:50:43] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:50:43] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:50:43] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:50:43] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:50:43] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:50:43] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:50:43] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:50:43] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:50:43] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:52:44] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:52:45] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:52:46] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:52:46] 
+    
+    drop table if exists Items cascade
+[15:52:46] 
+    
+    drop table if exists OrderItems cascade
+[15:52:46] 
+    
+    drop table if exists Orders cascade
+[15:52:46] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:52:46] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:52:46] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:52:46] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:52:46] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:52:46] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:52:46] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:52:46] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:52:46] binding parameter [1] as [NUMERIC] - [40.5]
+[15:52:46] binding parameter [2] as [VARCHAR] - [shose]
+[15:52:46] binding parameter [3] as [VARCHAR] - [S01]
+[15:52:46] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:52:46] binding parameter [1] as [NUMERIC] - [40.5]
+[15:52:46] binding parameter [2] as [VARCHAR] - [shose]
+[15:52:46] binding parameter [3] as [VARCHAR] - [S02]
+[15:52:46] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:52:46] binding parameter [1] as [NUMERIC] - [40.5]
+[15:52:46] binding parameter [2] as [VARCHAR] - [shose]
+[15:52:46] binding parameter [3] as [VARCHAR] - [S03]
+[15:52:46] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:52:46] binding parameter [1] as [BIGINT] - [2]
+[15:52:46] binding parameter [2] as [VARCHAR] - [S01]
+[15:52:46] binding parameter [3] as [VARCHAR] - [null]
+[15:52:46] binding parameter [4] as [VARCHAR] - [order1]
+[15:52:46] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:52:46] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:52:46] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:52:46 PDT 2017]
+[15:52:46] binding parameter [3] as [VARCHAR] - [Order001]
+[15:52:46] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:52:46] binding parameter [1] as [BIGINT] - [2]
+[15:52:46] binding parameter [2] as [VARCHAR] - [S02]
+[15:52:46] binding parameter [3] as [VARCHAR] - [null]
+[15:52:46] binding parameter [4] as [VARCHAR] - [order2]
+[15:52:46] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:52:46] binding parameter [1] as [BIGINT] - [2]
+[15:52:46] binding parameter [2] as [VARCHAR] - [S03]
+[15:52:46] binding parameter [3] as [VARCHAR] - [null]
+[15:52:46] binding parameter [4] as [VARCHAR] - [order3]
+[15:52:46] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:52:46] binding parameter [1] as [VARCHAR] - [Order001]
+[15:52:46] binding parameter [2] as [VARCHAR] - [order1]
+[15:52:46] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:52:46] binding parameter [1] as [VARCHAR] - [Order001]
+[15:52:46] binding parameter [2] as [VARCHAR] - [order2]
+[15:52:46] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:52:46] binding parameter [1] as [VARCHAR] - [Order001]
+[15:52:46] binding parameter [2] as [VARCHAR] - [order3]
+[15:52:46] commited ... 
+[15:52:46] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:52:46] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:52:46] 
+    
+    drop table if exists Items cascade
+[15:52:46] 
+    
+    drop table if exists OrderItems cascade
+[15:52:46] 
+    
+    drop table if exists Orders cascade
+[15:52:46] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:52:46] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:52:46] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:52:46] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:52:46] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:52:46] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:52:46] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:52:46] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:52:46] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:53:08] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[15:53:10] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:53:10] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:53:10] 
+    
+    drop table if exists Items cascade
+[15:53:10] 
+    
+    drop table if exists OrderItems cascade
+[15:53:10] 
+    
+    drop table if exists Orders cascade
+[15:53:10] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:53:10] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:53:10] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:53:10] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:53:10] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:53:10] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:53:10] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:53:10] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:53:10] binding parameter [1] as [NUMERIC] - [40.5]
+[15:53:10] binding parameter [2] as [VARCHAR] - [shose]
+[15:53:10] binding parameter [3] as [VARCHAR] - [S01]
+[15:53:10] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:53:10] binding parameter [1] as [NUMERIC] - [40.5]
+[15:53:10] binding parameter [2] as [VARCHAR] - [shose]
+[15:53:10] binding parameter [3] as [VARCHAR] - [S02]
+[15:53:10] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:53:10] binding parameter [1] as [NUMERIC] - [40.5]
+[15:53:10] binding parameter [2] as [VARCHAR] - [shose]
+[15:53:10] binding parameter [3] as [VARCHAR] - [S03]
+[15:53:10] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:53:10] binding parameter [1] as [BIGINT] - [2]
+[15:53:10] binding parameter [2] as [VARCHAR] - [S01]
+[15:53:10] binding parameter [3] as [VARCHAR] - [null]
+[15:53:10] binding parameter [4] as [VARCHAR] - [order1]
+[15:53:10] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:53:10] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:53:10] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:53:10 PDT 2017]
+[15:53:10] binding parameter [3] as [VARCHAR] - [Order001]
+[15:53:10] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:53:10] binding parameter [1] as [BIGINT] - [2]
+[15:53:10] binding parameter [2] as [VARCHAR] - [S02]
+[15:53:10] binding parameter [3] as [VARCHAR] - [null]
+[15:53:10] binding parameter [4] as [VARCHAR] - [order2]
+[15:53:10] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:53:10] binding parameter [1] as [BIGINT] - [2]
+[15:53:10] binding parameter [2] as [VARCHAR] - [S03]
+[15:53:10] binding parameter [3] as [VARCHAR] - [null]
+[15:53:10] binding parameter [4] as [VARCHAR] - [order3]
+[15:53:10] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:53:10] binding parameter [1] as [VARCHAR] - [Order001]
+[15:53:10] binding parameter [2] as [VARCHAR] - [order1]
+[15:53:10] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:53:10] binding parameter [1] as [VARCHAR] - [Order001]
+[15:53:10] binding parameter [2] as [VARCHAR] - [order2]
+[15:53:10] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:53:10] binding parameter [1] as [VARCHAR] - [Order001]
+[15:53:10] binding parameter [2] as [VARCHAR] - [order3]
+[15:53:10] commited ... 
+[15:53:10] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:53:10] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:53:10] 
+    
+    drop table if exists Items cascade
+[15:53:10] 
+    
+    drop table if exists OrderItems cascade
+[15:53:10] 
+    
+    drop table if exists Orders cascade
+[15:53:10] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:53:10] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:53:10] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:53:10] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:53:10] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:53:10] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:53:10] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:53:10] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:53:11] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:54:15] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:54:15] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:54:15] 
+    
+    drop table if exists Items cascade
+[15:54:15] 
+    
+    drop table if exists OrderItems cascade
+[15:54:15] 
+    
+    drop table if exists Orders cascade
+[15:54:15] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:54:15] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:54:15] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:54:15] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:54:15] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:54:15] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:54:15] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:54:15] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:15] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:15] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:15] binding parameter [3] as [VARCHAR] - [S01]
+[15:54:15] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:15] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:15] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:15] binding parameter [3] as [VARCHAR] - [S02]
+[15:54:15] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:15] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:15] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:15] binding parameter [3] as [VARCHAR] - [S03]
+[15:54:15] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:15] binding parameter [1] as [BIGINT] - [2]
+[15:54:15] binding parameter [2] as [VARCHAR] - [S01]
+[15:54:15] binding parameter [3] as [VARCHAR] - [null]
+[15:54:15] binding parameter [4] as [VARCHAR] - [order1]
+[15:54:15] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:54:15] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:54:15] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:54:15 PDT 2017]
+[15:54:15] binding parameter [3] as [VARCHAR] - [Order001]
+[15:54:15] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:15] binding parameter [1] as [BIGINT] - [2]
+[15:54:15] binding parameter [2] as [VARCHAR] - [S02]
+[15:54:15] binding parameter [3] as [VARCHAR] - [null]
+[15:54:15] binding parameter [4] as [VARCHAR] - [order2]
+[15:54:15] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:15] binding parameter [1] as [BIGINT] - [2]
+[15:54:15] binding parameter [2] as [VARCHAR] - [S03]
+[15:54:15] binding parameter [3] as [VARCHAR] - [null]
+[15:54:15] binding parameter [4] as [VARCHAR] - [order3]
+[15:54:15] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:15] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:15] binding parameter [2] as [VARCHAR] - [order1]
+[15:54:15] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:15] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:15] binding parameter [2] as [VARCHAR] - [order2]
+[15:54:15] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:15] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:15] binding parameter [2] as [VARCHAR] - [order3]
+[15:54:15] commited ... 
+[15:54:15] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:54:15] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:54:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:54:15] 
+    
+    drop table if exists Items cascade
+[15:54:15] 
+    
+    drop table if exists OrderItems cascade
+[15:54:15] 
+    
+    drop table if exists Orders cascade
+[15:54:15] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:54:15] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:54:15] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:54:15] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:54:16] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:54:16] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:54:16] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:54:16] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:54:16] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:54:16] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:54:16] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[15:54:19] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:54:19] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:54:19] 
+    
+    drop table if exists Items cascade
+[15:54:19] 
+    
+    drop table if exists OrderItems cascade
+[15:54:19] 
+    
+    drop table if exists Orders cascade
+[15:54:19] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:54:19] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:54:19] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:54:19] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:54:19] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:54:19] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:54:19] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:54:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:19] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:19] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:19] binding parameter [3] as [VARCHAR] - [S01]
+[15:54:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:19] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:19] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:19] binding parameter [3] as [VARCHAR] - [S02]
+[15:54:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[15:54:19] binding parameter [1] as [NUMERIC] - [40.5]
+[15:54:19] binding parameter [2] as [VARCHAR] - [shose]
+[15:54:19] binding parameter [3] as [VARCHAR] - [S03]
+[15:54:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:19] binding parameter [1] as [BIGINT] - [2]
+[15:54:19] binding parameter [2] as [VARCHAR] - [S01]
+[15:54:19] binding parameter [3] as [VARCHAR] - [null]
+[15:54:19] binding parameter [4] as [VARCHAR] - [order1]
+[15:54:19] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[15:54:19] binding parameter [1] as [VARCHAR] - [Rahel E]
+[15:54:19] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 15:54:19 PDT 2017]
+[15:54:19] binding parameter [3] as [VARCHAR] - [Order001]
+[15:54:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:19] binding parameter [1] as [BIGINT] - [2]
+[15:54:19] binding parameter [2] as [VARCHAR] - [S02]
+[15:54:19] binding parameter [3] as [VARCHAR] - [null]
+[15:54:19] binding parameter [4] as [VARCHAR] - [order2]
+[15:54:19] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[15:54:19] binding parameter [1] as [BIGINT] - [2]
+[15:54:19] binding parameter [2] as [VARCHAR] - [S03]
+[15:54:19] binding parameter [3] as [VARCHAR] - [null]
+[15:54:19] binding parameter [4] as [VARCHAR] - [order3]
+[15:54:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:19] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:19] binding parameter [2] as [VARCHAR] - [order1]
+[15:54:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:19] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:19] binding parameter [2] as [VARCHAR] - [order2]
+[15:54:19] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[15:54:19] binding parameter [1] as [VARCHAR] - [Order001]
+[15:54:19] binding parameter [2] as [VARCHAR] - [order3]
+[15:54:19] commited ... 
+[15:54:19] 
+    
+    alter table OrderItems 
+       drop constraint FKaq3edrqto4vblxm0vggqephub
+[15:54:19] 
+    
+    alter table OrderItems 
+       drop constraint FKsojb8i0vsjywu9un7atw6aile
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FKof98hfrphxmfeod1r2hkdp8o8
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint FK8q8iq7trw15sksw2nbstw20gk
+[15:54:19] 
+    
+    drop table if exists Items cascade
+[15:54:19] 
+    
+    drop table if exists OrderItems cascade
+[15:54:19] 
+    
+    drop table if exists Orders cascade
+[15:54:19] 
+    
+    drop table if exists Orders_OrderItems cascade
+[15:54:19] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[15:54:19] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[15:54:19] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[15:54:19] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[15:54:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[15:54:20] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[15:54:20] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[15:54:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[15:54:20] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[15:54:20] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:07:59] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:08:00] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:08:00] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:08:00] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:08:00] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:08:00] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:08:00] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:08:00] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:08:00] binding parameter [1] as [NUMERIC] - [40.5]
+[16:08:00] binding parameter [2] as [VARCHAR] - [shose]
+[16:08:00] binding parameter [3] as [VARCHAR] - [S01]
+[16:08:00] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:08:00] binding parameter [1] as [NUMERIC] - [40.5]
+[16:08:00] binding parameter [2] as [VARCHAR] - [shose]
+[16:08:00] binding parameter [3] as [VARCHAR] - [S02]
+[16:08:00] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:08:00] binding parameter [1] as [NUMERIC] - [40.5]
+[16:08:00] binding parameter [2] as [VARCHAR] - [shose]
+[16:08:00] binding parameter [3] as [VARCHAR] - [S03]
+[16:08:00] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[16:08:00] binding parameter [1] as [BIGINT] - [2]
+[16:08:00] binding parameter [2] as [VARCHAR] - [S01]
+[16:08:00] binding parameter [3] as [VARCHAR] - [null]
+[16:08:00] binding parameter [4] as [VARCHAR] - [order1]
+[16:08:00] 
+    /* insert com.model.Orders
+        */ insert 
+        into
+            Orders
+            (customerName, placementDate, OrderId) 
+        values
+            (?, ?, ?)
+[16:08:00] binding parameter [1] as [VARCHAR] - [Rahel E]
+[16:08:00] binding parameter [2] as [TIMESTAMP] - [Mon Aug 21 16:08:00 PDT 2017]
+[16:08:00] binding parameter [3] as [VARCHAR] - [Order001]
+[16:08:00] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[16:08:00] binding parameter [1] as [BIGINT] - [2]
+[16:08:00] binding parameter [2] as [VARCHAR] - [S02]
+[16:08:00] binding parameter [3] as [VARCHAR] - [null]
+[16:08:00] binding parameter [4] as [VARCHAR] - [order2]
+[16:08:00] 
+    /* insert com.model.OrderItems
+        */ insert 
+        into
+            OrderItems
+            (itemCount, itemId, orders_OrderId, orderItemId) 
+        values
+            (?, ?, ?, ?)
+[16:08:00] binding parameter [1] as [BIGINT] - [2]
+[16:08:00] binding parameter [2] as [VARCHAR] - [S03]
+[16:08:00] binding parameter [3] as [VARCHAR] - [null]
+[16:08:00] binding parameter [4] as [VARCHAR] - [order3]
+[16:08:00] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[16:08:00] binding parameter [1] as [VARCHAR] - [Order001]
+[16:08:00] binding parameter [2] as [VARCHAR] - [order1]
+[16:08:00] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[16:08:00] binding parameter [1] as [VARCHAR] - [Order001]
+[16:08:00] binding parameter [2] as [VARCHAR] - [order2]
+[16:08:00] 
+    /* insert collection
+        row com.model.Orders.orderItems */ insert 
+        into
+            Orders_OrderItems
+            (Orders_OrderId, orderItems_orderItemId) 
+        values
+            (?, ?)
+[16:08:00] binding parameter [1] as [VARCHAR] - [Order001]
+[16:08:00] binding parameter [2] as [VARCHAR] - [order3]
+[16:08:00] commited ... 
+[16:08:00] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:08:00] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:08:00] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:08:00] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:08:00] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:08:00] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:08:00] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:08:01] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:08:01] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:08:01] binding parameter [1] as [VARCHAR] - [Order001]
+[16:08:18] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:08:19] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:08:19] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:08:19] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:08:19] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:08:19] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:08:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:08:19] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:08:19] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:08:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:08:19] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:08:19] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:08:19] binding parameter [1] as [NUMERIC] - [40.5]
+[16:08:19] binding parameter [2] as [VARCHAR] - [shose]
+[16:08:19] binding parameter [3] as [VARCHAR] - [S01]
+[16:08:19] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:08:19] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:08:42] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:08:43] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:08:43] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:08:43] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:08:43] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:08:43] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:08:44] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:08:44] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:08:44] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:08:44] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:08:44] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:08:44] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:08:44] binding parameter [1] as [NUMERIC] - [40.5]
+[16:08:44] binding parameter [2] as [VARCHAR] - [shose]
+[16:08:44] binding parameter [3] as [VARCHAR] - [S01]
+[16:08:44] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:08:44] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:08:58] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:08:59] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:08:59] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:08:59] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:08:59] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:08:59] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:08:59] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:08:59] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:08:59] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:08:59] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:08:59] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:09:00] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:09:00] binding parameter [1] as [NUMERIC] - [40.5]
+[16:09:00] binding parameter [2] as [VARCHAR] - [shose]
+[16:09:00] binding parameter [3] as [VARCHAR] - [S01]
+[16:09:00] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:09:00] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:09:12] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:09:13] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:09:13] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:09:13] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:09:13] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:09:13] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:09:13] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:09:13] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:09:13] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:09:13] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:09:13] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:09:13] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:09:13] binding parameter [1] as [NUMERIC] - [40.5]
+[16:09:13] binding parameter [2] as [VARCHAR] - [shose]
+[16:09:13] binding parameter [3] as [VARCHAR] - [S01]
+[16:09:13] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:09:13] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:09:21] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:09:22] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:09:22] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:09:22] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:09:22] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:09:22] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:09:22] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:09:22] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:09:22] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:09:22] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:09:22] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:09:22] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:09:22] binding parameter [1] as [NUMERIC] - [40.5]
+[16:09:22] binding parameter [2] as [VARCHAR] - [shose]
+[16:09:22] binding parameter [3] as [VARCHAR] - [S01]
+[16:09:22] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:09:22] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:09:32] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:09:34] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:09:34] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:09:34] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:09:34] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:09:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:09:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:09:34] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:09:34] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:09:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:09:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:09:34] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:09:34] binding parameter [1] as [NUMERIC] - [40.5]
+[16:09:34] binding parameter [2] as [VARCHAR] - [shose]
+[16:09:34] binding parameter [3] as [VARCHAR] - [S01]
+[16:09:34] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:09:34] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:10:07] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:10:09] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:10:09] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:10:09] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:10:09] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:10:09] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:10:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:10:09] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:10:09] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:10:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:10:09] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:10:09] 
+    /* insert com.model.Items
+        */ insert 
+        into
+            Items
+            (itemCost, itemName, itemId) 
+        values
+            (?, ?, ?)
+[16:10:09] binding parameter [1] as [NUMERIC] - [40.5]
+[16:10:09] binding parameter [2] as [VARCHAR] - [shose]
+[16:10:09] binding parameter [3] as [VARCHAR] - [S01]
+[16:10:09] ERROR: duplicate key value violates unique constraint "items_pkey"
+  Detail: Key (itemid)=(S01) already exists.
+[16:10:09] HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[16:15:06] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:15:07] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:15:07] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:15:07] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:15:07] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:15:07] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:15:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:15:07] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:15:07] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:15:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:15:07] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:15:07] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:15:07] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:15:07] binding parameter [1] as [VARCHAR] - [Order001]
+[16:16:24] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:16:25] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:16:25] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:16:25] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:16:25] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:16:25] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:16:25] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:16:25] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:16:25] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:16:25] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:16:25] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:16:25] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:16:25] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:16:25] binding parameter [1] as [VARCHAR] - [Order001]
+[16:16:33] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:16:34] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:16:34] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:16:34] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:16:34] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:16:34] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:16:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:16:34] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:16:34] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:16:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:16:34] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:16:34] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:16:34] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:16:34] binding parameter [1] as [VARCHAR] - [Order001]
+[16:17:04] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:17:06] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:17:06] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:17:06] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:17:06] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:17:06] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:17:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:17:06] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:17:06] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:17:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:17:06] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:17:06] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:17:06] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:17:06] binding parameter [1] as [VARCHAR] - [Order001]
+[16:28:14] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:28:15] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:28:15] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:28:15] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:28:15] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:28:15] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:28:15] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:28:16] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:28:16] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:28:16] binding parameter [1] as [VARCHAR] - [Order001]
+[16:29:28] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:29:30] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:29:30] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:29:30] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:29:30] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:29:30] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:29:30] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:29:30] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:29:30] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:29:30] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:29:30] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:29:30] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:29:30] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:29:30] binding parameter [1] as [VARCHAR] - [Order001]
+[16:29:57] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:29:57] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:29:57] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:29:57] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:29:57] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:29:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:29:57] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:29:57] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:29:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:29:57] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:29:57] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:29:57] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:29:57] binding parameter [1] as [VARCHAR] - [Order001]
+[16:30:27] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:30:27] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:30:27] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:30:27] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:30:27] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:30:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:30:27] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:30:27] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:30:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:30:27] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:30:27] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:30:27] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:30:27] binding parameter [1] as [VARCHAR] - [Order001]

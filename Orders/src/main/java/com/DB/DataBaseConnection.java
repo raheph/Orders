@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class DataBaseConnection {
     private static final Logger logger = Logger.getLogger(DataBaseConnection.class);
 
-    private  static AtomicLong id = new AtomicLong(1);
+    //just to generate fake data
     public  static void getOrders1(){
 //        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 //        Session session = sessionFactory.openSession();
@@ -49,8 +49,6 @@ public class DataBaseConnection {
 //        session.getTransaction().commit();
 //        logger.info("commited ... ");
 //        session.close();
-//     //  getOrders2("Order001");
-//        logger.warn("You good :)");
     }
 
     public static List<OrderItems>  getOrders(String orderId){
@@ -63,6 +61,6 @@ public class DataBaseConnection {
         List<Orders> ordersList = query.getResultList();
         session.getTransaction().commit();
         session.close();
-        return ordersList.get(0).getOrderItems();
+        return ordersList == null ? null :ordersList.get(0).getOrderItems();
     }
 }

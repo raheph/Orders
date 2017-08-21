@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testServices.ProcessApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-08-21T23:28:16" hostname="RMD00900930L" time="0.079">
+  <properties/>
+  <testcase name="testProcessApi" classname="testServices.ProcessApiTest" time="0.079"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Aug 21, 2017 4:28:16 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFO: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+Aug 21, 2017 4:28:16 PM org.glassfish.jersey.internal.inject.Providers checkProviderRuntime
+WARNING: A provider testServices.ProcessApiTest registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider testServices.ProcessApiTest will be ignored. 
+Aug 21, 2017 4:28:16 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFO: Started listener bound to [localhost:9998]
+Aug 21, 2017 4:28:16 PM org.glassfish.grizzly.http.server.HttpServer start
+INFO: [HttpServer-1] Started.
+Aug 21, 2017 4:28:16 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFO: Stopped listener bound to [localhost:9998]
+]]></system-err>
+</testsuite>

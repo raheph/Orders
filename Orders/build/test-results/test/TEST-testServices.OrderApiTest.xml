@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testServices.OrderApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-08-21T23:28:13" hostname="RMD00900930L" time="2.443">
+  <properties/>
+  <testcase name="testOrderwithParam" classname="testServices.OrderApiTest" time="2.443"/>
+  <system-out><![CDATA[[16:28:14] Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[16:28:15] 
+    
+    create table Items (
+       itemId varchar(255) not null,
+        itemCost numeric(19, 2),
+        itemName varchar(255),
+        primary key (itemId)
+    )
+[16:28:15] 
+    
+    create table OrderItems (
+       orderItemId varchar(255) not null,
+        itemCount int8,
+        itemId varchar(255),
+        orders_OrderId varchar(255),
+        primary key (orderItemId)
+    )
+[16:28:15] 
+    
+    create table Orders (
+       OrderId varchar(255) not null,
+        customerName varchar(255),
+        placementDate timestamp,
+        primary key (OrderId)
+    )
+[16:28:15] 
+    
+    create table Orders_OrderItems (
+       Orders_OrderId varchar(255) not null,
+        orderItems_orderItemId varchar(255) not null
+    )
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       drop constraint if exists UK_kmgkolluis6d8iafqq8yacayq
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint UK_kmgkolluis6d8iafqq8yacayq unique (orderItems_orderItemId)
+[16:28:15] 
+    
+    alter table OrderItems 
+       add constraint FKaq3edrqto4vblxm0vggqephub 
+       foreign key (itemId) 
+       references Items
+[16:28:15] 
+    
+    alter table OrderItems 
+       add constraint FKsojb8i0vsjywu9un7atw6aile 
+       foreign key (orders_OrderId) 
+       references Orders
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FKof98hfrphxmfeod1r2hkdp8o8 
+       foreign key (orderItems_orderItemId) 
+       references OrderItems
+[16:28:15] 
+    
+    alter table Orders_OrderItems 
+       add constraint FK8q8iq7trw15sksw2nbstw20gk 
+       foreign key (Orders_OrderId) 
+       references Orders
+[16:28:16] 
+    /* 
+From
+    Orders 
+where
+    OrderId= 'Order001' */ select
+        orders0_.OrderId as OrderId1_2_,
+        orders0_.customerName as customer2_2_,
+        orders0_.placementDate as placemen3_2_ 
+    from
+        Orders orders0_ 
+    where
+        orders0_.OrderId='Order001'
+[16:28:16] 
+    select
+        orderitems0_.Orders_OrderId as Orders_O1_3_0_,
+        orderitems0_.orderItems_orderItemId as orderIte2_3_0_,
+        orderitems1_.orderItemId as orderIte1_1_1_,
+        orderitems1_.itemCount as itemCoun2_1_1_,
+        orderitems1_.itemId as itemId3_1_1_,
+        orderitems1_.orders_OrderId as orders_O4_1_1_,
+        items2_.itemId as itemId1_0_2_,
+        items2_.itemCost as itemCost2_0_2_,
+        items2_.itemName as itemName3_0_2_,
+        orders3_.OrderId as OrderId1_2_3_,
+        orders3_.customerName as customer2_2_3_,
+        orders3_.placementDate as placemen3_2_3_ 
+    from
+        Orders_OrderItems orderitems0_ 
+    inner join
+        OrderItems orderitems1_ 
+            on orderitems0_.orderItems_orderItemId=orderitems1_.orderItemId 
+    left outer join
+        Items items2_ 
+            on orderitems1_.itemId=items2_.itemId 
+    left outer join
+        Orders orders3_ 
+            on orderitems1_.orders_OrderId=orders3_.OrderId 
+    where
+        orderitems0_.Orders_OrderId=?
+[16:28:16] binding parameter [1] as [VARCHAR] - [Order001]
+]]></system-out>
+  <system-err><![CDATA[Aug 21, 2017 4:28:14 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFO: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+Aug 21, 2017 4:28:14 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFO: Started listener bound to [localhost:9998]
+Aug 21, 2017 4:28:14 PM org.glassfish.grizzly.http.server.HttpServer start
+INFO: [HttpServer] Started.
+Aug 21, 2017 4:28:16 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFO: Stopped listener bound to [localhost:9998]
+]]></system-err>
+</testsuite>
