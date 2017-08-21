@@ -20,39 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class DataBaseConnection {
     private static final Logger logger = Logger.getLogger(DataBaseConnection.class);
 
-    //just to generate fake data
-    public  static void getOrders1(){
-//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//
-//        Items items1 = new Items ("S01", "shose", new BigDecimal(40.50));
-//        Items items2 = new Items ("S02", "shose", new BigDecimal(40.50));
-//        Items items3 = new Items ("S03", "shose", new BigDecimal(40.50));
-//
-//        OrderItems orderItems1 = new OrderItems("order1", items1, 2);
-//        OrderItems orderItems2 = new OrderItems("order2", items2, 2);
-//        OrderItems orderItems3 = new OrderItems("order3", items3, 2);
-//
-//        List<OrderItems> OrderItems = new ArrayList<>();
-//        OrderItems.add(orderItems1);
-//        OrderItems.add(orderItems2);
-//        OrderItems.add(orderItems3);
-//
-//        Orders orders = new Orders("Order001", new Date(), "Rahel E", OrderItems);
-//        session.persist(items1);
-//        session.persist(items2);
-//        session.persist(items3);
-//        session.persist(orderItems1);
-//        session.persist(orders);
-//
-//        session.getTransaction().commit();
-//        logger.info("commited ... ");
-//        session.close();
-    }
-
     public static List<OrderItems>  getOrders(String orderId){
-     //   getOrders1();
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();

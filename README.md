@@ -17,3 +17,9 @@ cd to the project file and run gradlew.bat build tomcatRunWar
 How to run on Mac/Linux:
 cd to the project file and run ./gradlew build tomcatRunWar
 
+open browser/postman to test the services
+
+http://localhost:8080/Orders/rest/Order/Order001       to test an order by order id where Order001 is Order id.
+
+http://localhost:8080/Orders/rest/Process/Order001     to test the total for the order by order id
+

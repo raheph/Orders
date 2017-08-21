@@ -22,14 +22,4 @@ public class OrdersApi
     {
         return DataBaseConnection.getOrders(orderId);
     }
-
-    @POST
-    @Path("/Orders")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getOrders(Orders orders){
-        String result = "Saved Orders : " + orders;
-        LOGGER.info("Orders id : " + orders.getOrderId());
-        return orders.getOrderId() + " " + orders.getCustomerName() + " " + orders.getPlacementDate();
-    }
 }
