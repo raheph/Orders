@@ -1,2 +1,3 @@
 This doc is a place holder for a design spec
+Every change should have a design spec and checked in to this package. 
 #TODO
